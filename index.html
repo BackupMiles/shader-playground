@@ -10,22 +10,4 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
-  <script id="vertexShader" type="x-shader/x-vertex">
-    void main() {
-        gl_Position = vec4( position, 1.0 );
-    }
-  </script>
-  <script id="fragmentShader" type="x-shader/x-fragment">
-    precision mediump float;
-
-    uniform vec2 u_resolution;
-    uniform vec2 u_mouse;
-    uniform float u_time;
-
-    void main() {
-      vec4 color = vec4(abs(sin(u_time)), 1.0, 0.5, 1.0);
-
-      gl_FragColor=color;
-    }
-  </script>
 </html>

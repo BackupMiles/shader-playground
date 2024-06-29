@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
+import * as fragment from '../src/assets/fragment.glsl?raw'
 import './App.css'
 
 function App() {
@@ -13,9 +14,9 @@ function App() {
     const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
     const renderer = new THREE.WebGLRenderer();
-    renderer.setSize( window.innerWidth, window.innerHeight );
-    renderer.setPixelRatio( window.devicePixelRatio );
-    containerRef.current?.appendChild(renderer.domElement);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    containerRef.current.appendChild(renderer.domElement);
 
     const uniforms = {
       u_time: { type: "f", value: 1.0 },
@@ -26,7 +27,7 @@ function App() {
     const material = new THREE.ShaderMaterial( {
         uniforms: uniforms,
         // TODO: a vertex shader would be nice
-        fragmentShader: document.getElementById('fragmentShader')!.textContent as string
+        fragmentShader: fragment.default
     } );
 
     const geometry = new THREE.BoxGeometry( 1, 1, 1 );
@@ -36,6 +37,7 @@ function App() {
     camera.position.z = 5;
 
     onWindowResize();
+    
     document.onmousemove = (e) => {
       uniforms.u_mouse.value.x = e.pageX
       uniforms.u_mouse.value.y = e.pageY

@@ -16,8 +16,6 @@ const uniforms = {
 const App = () => {
   const meshRef = useRef<Mesh>(null);
 
-  useEffect(() => {});
-
   return (
     <div id="canvas-container" className="h-full">
       <Canvas

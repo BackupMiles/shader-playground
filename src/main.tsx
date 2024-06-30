@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { createRoot } from "react-dom/client";
 import { Mesh, Vector2 } from "three";
 import fragmentShader from "../src/assets/fragment.glsl?raw";

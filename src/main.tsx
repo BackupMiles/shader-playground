@@ -2,9 +2,10 @@ import { Canvas } from "@react-three/fiber";
 import { useRef } from "react";
 import { createRoot } from "react-dom/client";
 import { Mesh, Vector2 } from "three";
-import fragmentShader from "../src/assets/fragment.glsl?raw";
+import fragmentShader from "../src/assets/perlin/fragment.glsl?raw";
+import vertexShader from "../src/assets/perlin/vertex.glsl?raw";
 import RendererInfo from "./components/renderer-info";
-import RotatingCube from "./components/rotating-cube";
+import Icosahedron from "./components/icosahedron";
 import "./index.css";
 
 const uniforms = {
@@ -26,7 +27,7 @@ const App = () => {
         }}
       >
         <RendererInfo mesh={meshRef.current} uniforms={uniforms} />
-        <RotatingCube fragmentShader={fragmentShader} uniforms={uniforms} />
+        <Icosahedron fragmentShader={fragmentShader} uniforms={uniforms} vertexShader={vertexShader} />
       </Canvas>
     </div>
   );

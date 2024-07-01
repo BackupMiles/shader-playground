@@ -1,19 +1,19 @@
-import { forwardRef } from "react";
 import { IUniform, Mesh } from "three";
 
 type RotatingCubeProps = {
-    fragmentShader: string,
-    vertexShader: string,
-    uniforms: Record<string, IUniform<any>>,
+    fragmentShader: string;
+    vertexShader: string;
+    uniforms: Record<string, IUniform<any>>;
+    handleRefInit?: (m: Mesh) => void;
 }
 
-const Icosahedron = forwardRef<Mesh, RotatingCubeProps>(({ fragmentShader, uniforms, vertexShader }, ref) => {
+const Icosahedron = ({ fragmentShader, uniforms, vertexShader, handleRefInit }: RotatingCubeProps) => {
   return (
-    <mesh ref={ref}>
+    <mesh ref={handleRefInit}>
       <icosahedronGeometry args={[4, 30]} />
       <shaderMaterial vertexShader={vertexShader} fragmentShader={fragmentShader} uniforms={uniforms} wireframe={true} />
     </mesh>
   );
-});
+};
 
 export default Icosahedron;

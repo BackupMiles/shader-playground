@@ -2,6 +2,7 @@ import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import React from "react";
 import PerlinExample from "./components/examples/perlin-example";
+import MouseExample from "./components/examples/mouse-example";
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
   {
     path: "/perlin",
     element: <PerlinExample />
+  },
+  {
+    path: "/mouse",
+    element: <MouseExample />
   },
 ]);
 

@@ -2,6 +2,8 @@ precision mediump float;
 
 // credits to Ashima for this noise example
 uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
 
 vec3 mod289(vec3 x)
 {

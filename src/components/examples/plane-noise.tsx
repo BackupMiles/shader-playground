@@ -1,14 +1,14 @@
 import { Canvas } from "@react-three/fiber";
 import { useCallback } from "react";
 import { BufferAttribute, PlaneGeometry } from "three";
-import fragmentShader from "../../../src/assets/mouse/fragment.glsl?raw";
-import vertexShader from "../../../src/assets/mouse/vertex.glsl?raw";
+import fragmentShader from "../../../src/assets/plane-noise/fragment.glsl?raw";
+import vertexShader from "../../../src/assets/plane-noise/vertex.glsl?raw";
 import { DEFAULT_UNIFORMS } from "../../constants/uniforms";
 import RendererInfo from "../renderer-info";
 
 const uniforms = { ...DEFAULT_UNIFORMS };
 
-const MouseExample = () => {
+const PlaneNoise = () => {
     const initGeometry = useCallback((geometry: PlaneGeometry) => {
         const count = geometry.attributes.position.count;
         const randoms = new Float32Array(count);
@@ -39,4 +39,4 @@ const MouseExample = () => {
     )
 }
 
-export default MouseExample;
+export default PlaneNoise;

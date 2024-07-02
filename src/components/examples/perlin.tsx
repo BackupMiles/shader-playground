@@ -7,7 +7,7 @@ import RendererInfo from "../renderer-info";
 
 const uniforms = { ...DEFAULT_UNIFORMS };
 
-const PerlinExample = () => {
+const Perlin = () => {
   return (
     <Canvas
       className="w-full bg-black h-full"
@@ -22,4 +22,4 @@ const PerlinExample = () => {
   );
 };
 
-export default PerlinExample;
+export default Perlin;

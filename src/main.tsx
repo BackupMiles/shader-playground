@@ -1,9 +1,10 @@
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import React from "react";
-import PerlinExample from "./components/examples/perlin-example";
-import MouseExample from "./components/examples/mouse-example";
+import Perlin from "./components/examples/perlin";
+import PlaneNoise from "./components/examples/plane-noise";
 import "./index.css";
+import BobbyBlob from "./components/examples/bobby-blob";
 
 const router = createBrowserRouter([
   // TODO: replace with some actual home component
@@ -12,12 +13,16 @@ const router = createBrowserRouter([
     element: <h1>Hello!</h1>
   },
   {
-    path: "/perlin",
-    element: <PerlinExample />
+    path: "/blob",
+    element: <BobbyBlob />
   },
   {
-    path: "/mouse",
-    element: <MouseExample />
+    path: "/plane-noise",
+    element: <PlaneNoise />
+  },
+  {
+    path: "/perlin",
+    element: <Perlin />
   },
 ]);
 

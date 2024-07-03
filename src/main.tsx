@@ -1,10 +1,11 @@
+import React from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import React from "react";
+import BobbyBlob from "./components/examples/bobby-blob";
+import Patterns from "./components/examples/patterns";
 import Perlin from "./components/examples/perlin";
 import PlaneNoise from "./components/examples/plane-noise";
 import "./index.css";
-import BobbyBlob from "./components/examples/bobby-blob";
 
 const router = createBrowserRouter([
   // TODO: replace with some actual home component
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/blob",
     element: <BobbyBlob />
+  },
+  {
+    path: "/patterns",
+    element: <Patterns />
   },
   {
     path: "/plane-noise",

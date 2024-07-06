@@ -2,7 +2,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import BobbyBlob from "./components/examples/bobby-blob";
-import Patterns from "./components/examples/patterns";
+import Globe from "./components/examples/globe";
 import Perlin from "./components/examples/perlin";
 import PlaneNoise from "./components/examples/plane-noise";
 import "./index.css";
@@ -18,8 +18,8 @@ const router = createBrowserRouter([
     element: <BobbyBlob />
   },
   {
-    path: "/patterns",
-    element: <Patterns />
+    path: "/globe",
+    element: <Globe />
   },
   {
     path: "/plane-noise",
@@ -29,6 +29,10 @@ const router = createBrowserRouter([
     path: "/perlin",
     element: <Perlin />
   },
+  {
+    path: "*",
+    element: <Perlin />
+  }
 ]);
 
 const root = document.getElementById("root");

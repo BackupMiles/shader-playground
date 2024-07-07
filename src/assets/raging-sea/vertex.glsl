@@ -87,7 +87,7 @@ void main() {
 
   float elevation = sin(modelPosition.x * u_big_waves_frequency.x + u_time * u_big_waves_speed) * u_big_waves_elevation;
   elevation *= sin(modelPosition.y * u_big_waves_frequency.y + u_time * u_big_waves_speed);
-  elevation +=  abs(cnoise(vec3(modelPosition.xy * u_waves_multiplier, u_time * u_noise_amplifier)) * 0.15);
+  elevation -=  abs(cnoise(vec3(modelPosition.xy * u_waves_multiplier, u_time * u_noise_amplifier)) * 0.15);
   modelPosition.z += elevation;
 
   vec4 viewPosition = viewMatrix * modelPosition;

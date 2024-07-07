@@ -5,11 +5,14 @@ import { useEffect } from "react";
 import fragmentShader from "../../../../src/assets/raging-sea/fragment.glsl?raw";
 import vertexShader from "../../../../src/assets/raging-sea/vertex.glsl?raw";
 import RendererInfo from "../../renderer-info";
-import { WAVES_UNIFORM } from "./uniforms";
+import { buildWavesUniform } from "./uniforms";
 import { initializeGUI } from "./utils";
 
 const RagingSea = () => {
-  const uniforms = WAVES_UNIFORM;
+  const uniforms = buildWavesUniform({ 
+    depthColor: "#121265" ,
+    surfaceColor: "#0892b4", 
+  });
 
   useEffect(() => {
     const gui = new GUI();

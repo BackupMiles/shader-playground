@@ -1,19 +1,15 @@
-import { Vector2 } from "three";
+import { IUniform, Vector2 } from "three";
 
 export type TUniforms = {
-  u_big_waves_elevation: any;
-  u_big_waves_frequency: any;
-  u_mouse: any;
-  u_mouse_enabled: any;
-  u_resolution: any;
-  u_time: any;
+  u_mouse: IUniform<Vector2>;
+  u_mouse_enabled: IUniform<boolean>;
+  u_resolution: IUniform<Vector2>;
+  u_time: IUniform<number>;
 }
 
 export const DEFAULT_UNIFORMS: TUniforms = {
-  u_big_waves_elevation: { type: "f", value: 0.2 },
-  u_big_waves_frequency: { type: "v2", value: new Vector2(4, 1.5) },
-  u_resolution: { type: "v2", value: new Vector2() },
-  u_time: { type: "f", value: 1.0 },
-  u_mouse: { type: "v2", value: new Vector2() },
-  u_mouse_enabled: { type: "b", value: false },
+  u_resolution: { value: new Vector2() },
+  u_time: { value: 1.0 },
+  u_mouse: { value: new Vector2() },
+  u_mouse_enabled: { value: false },
 }

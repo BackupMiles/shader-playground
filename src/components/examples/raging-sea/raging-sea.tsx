@@ -2,22 +2,18 @@ import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { GUI } from "lil-gui";
 import { useEffect } from "react";
-import fragmentShader from "../../../src/assets/raging-sea/fragment.glsl?raw";
-import vertexShader from "../../../src/assets/raging-sea/vertex.glsl?raw";
-import { DEFAULT_UNIFORMS } from "../../constants/uniforms";
-import RendererInfo from "../renderer-info";
+import fragmentShader from "../../../../src/assets/raging-sea/fragment.glsl?raw";
+import vertexShader from "../../../../src/assets/raging-sea/vertex.glsl?raw";
+import RendererInfo from "../../renderer-info";
+import { WAVES_UNIFORM } from "./uniforms";
+import { initializeGUI } from "./utils";
 
 const RagingSea = () => {
-  const uniforms = { ...DEFAULT_UNIFORMS };
+  const uniforms = WAVES_UNIFORM;
 
   useEffect(() => {
     const gui = new GUI();
-    gui
-      .add(uniforms.u_big_waves_elevation, "value")
-      .min(0)
-      .max(1)
-      .step(0.001)
-      .name("uBigWavesElevation");
+    initializeGUI(gui, uniforms);
 
     return () => {
       gui.destroy();

@@ -11,6 +11,13 @@ export const initializeGUI = (gui: GUI, uniforms: TWavesUniform) => {
     .name("u_big_waves_elevation");
 
   waves
+    .add(uniforms.u_waves_elevation, "value")
+    .min(0)
+    .max(2)
+    .step(0.001)
+    .name("u_big_waves_elevation");
+
+  waves
     .add(uniforms.u_big_waves_frequency.value, "x")
     .min(0)
     .max(10)
@@ -32,18 +39,27 @@ export const initializeGUI = (gui: GUI, uniforms: TWavesUniform) => {
     .name("u_big_waves_speed");
 
   waves
+    .add(uniforms.u_waves_multiplier, "value")
+    .min(0)
+    .max(10)
+    .step(0.001)
+    .name("u_waves_multiplier");
+
+
+  const noise = waves.addFolder("noise");
+  noise
     .add(uniforms.u_noise_amplifier, "value")
     .min(0)
     .max(1)
     .step(0.001)
     .name("u_noise_amplifier");
 
-  waves
-    .add(uniforms.u_waves_multiplier, "value")
+  noise
+    .add(uniforms.u_perlin_frequency, "value")
     .min(0)
     .max(10)
-    .step(0.001)
-    .name("u_waves_multiplier");
+    .step(1)
+    .name("u_perlin_frequency");
 
   // colors
   const color = gui.addFolder("color");

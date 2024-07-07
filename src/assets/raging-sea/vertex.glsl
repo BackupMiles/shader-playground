@@ -2,6 +2,8 @@ uniform float u_big_waves_speed;
 uniform float u_big_waves_elevation;
 uniform vec2 u_big_waves_frequency;
 uniform float u_noise_amplifier;
+uniform float u_perlin_frequency;
+uniform float u_waves_elevation;
 uniform float u_waves_multiplier;
 uniform float u_time;
 
@@ -87,7 +89,11 @@ void main() {
 
   float elevation = sin(modelPosition.x * u_big_waves_frequency.x + u_time * u_big_waves_speed) * u_big_waves_elevation;
   elevation *= sin(modelPosition.y * u_big_waves_frequency.y + u_time * u_big_waves_speed);
-  elevation -=  abs(cnoise(vec3(modelPosition.xy * u_waves_multiplier, u_time * u_noise_amplifier)) * 0.15);
+
+  for(float i = 1.; i <= u_perlin_frequency; i++) {
+    elevation -=  abs(cnoise(vec3(modelPosition.xy * u_waves_multiplier * i, u_time * u_noise_amplifier)) * u_waves_elevation / i);
+  }
+
   modelPosition.z += elevation;
 
   vec4 viewPosition = viewMatrix * modelPosition;

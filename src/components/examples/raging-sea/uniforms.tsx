@@ -6,7 +6,9 @@ export type TWavesUniform = TUniforms & {
   u_big_waves_elevation: IUniform<number>;
   u_big_waves_frequency: IUniform<Vector2>;
   u_noise_amplifier: IUniform<number>;
+  u_perlin_frequency: IUniform<number>;
   u_waves_multiplier: IUniform<number>;
+  u_waves_elevation: IUniform<number>;
   // Color
   u_color_offset: IUniform<number>;
   u_color_multiplier: IUniform<number>;
@@ -28,6 +30,8 @@ export const buildWavesUniform = ({ depthColor, surfaceColor }: TWavesBuilderOpt
   u_big_waves_speed: { value: 0.75 },
   u_depth_color: { value: new Color(depthColor) },
   u_noise_amplifier: { value: 0.2 },
+  u_perlin_frequency: { value: 4.0 },
   u_surface_color: { value: new Color(surfaceColor) },
   u_waves_multiplier: { value: 3.0 },
+  u_waves_elevation: { value: 0.15 },
 });

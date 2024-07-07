@@ -34,7 +34,7 @@ const RagingSea = () => {
       <RendererInfo uniforms={uniforms} />
       <OrbitControls />
       <mesh>
-        <planeGeometry args={[2, 2, 128, 128]} />
+        <planeGeometry args={[2, 2, 512, 512]} />
         <shaderMaterial
           fragmentShader={fragmentShader}
           vertexShader={vertexShader}

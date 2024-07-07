@@ -11,11 +11,11 @@ const Globe = () => {
 
     return (
         <Canvas
-        className="w-full bg-black h-full"
-        camera={{
-            position: [1, -1, 8],
-            fov: 75,
-        }}
+            className="w-full bg-black h-full"
+            camera={{
+                position: [1, -1, 8],
+                fov: 75,
+            }}
         >
             <RendererInfo uniforms={uniforms} />
             <OrbitControls />

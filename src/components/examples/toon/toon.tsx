@@ -5,11 +5,11 @@ import { useEffect } from "react";
 import fragmentShader from "../../../../src/assets/raging-sea/fragment.glsl?raw";
 import vertexShader from "../../../../src/assets/raging-sea/vertex.glsl?raw";
 import RendererInfo from "../../renderer-info";
-import { buildToonUniforms } from "./uniforms";
+import { buildHealthUniforms } from "./uniforms";
 import { initializeGUI } from "./utils";
 
-const Toon = () => {
-  const uniforms = buildToonUniforms({ 
+const HealthBar = () => {
+  const uniforms = buildHealthUniforms({ 
     depthColor: "#DDDDDD" ,
     surfaceColor: "#DDDDDD", 
   });
@@ -46,4 +46,4 @@ const Toon = () => {
   );
 };
 
-export default Toon;
+export default HealthBar;

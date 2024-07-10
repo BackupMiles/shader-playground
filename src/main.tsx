@@ -6,7 +6,7 @@ import Globe from "./components/examples/globe";
 import Perlin from "./components/examples/perlin";
 import PlaneNoise from "./components/examples/plane-noise";
 import RagingSea from "./components/examples/raging-sea/raging-sea";
-import Toon from "./components/examples/toon/toon";
+import HealthBar from "./components/examples/toon/toon";
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -36,8 +36,8 @@ const router = createBrowserRouter([
     element: <RagingSea />
   },
   {
-    path: "/toon",
-    element: <Toon />
+    path: "/health-bar",
+    element: <HealthBar />
   },
   {
     path: "*",

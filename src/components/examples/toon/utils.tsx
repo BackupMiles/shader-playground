@@ -1,7 +1,7 @@
 import GUI from "lil-gui";
-import { TToonUniform } from "./uniforms";
+import { THealthUniform } from "./uniforms";
 
-export const initializeGUI = (gui: GUI, uniforms: TToonUniform) => {
+export const initializeGUI = (gui: GUI, uniforms: THealthUniform) => {
   // colors
   const color = gui.addFolder("color");
   color

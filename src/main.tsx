@@ -6,13 +6,14 @@ import Globe from "./components/examples/globe";
 import Perlin from "./components/examples/perlin";
 import PlaneNoise from "./components/examples/plane-noise";
 import RagingSea from "./components/examples/raging-sea/raging-sea";
+import Toon from "./components/examples/toon/toon";
 import "./index.css";
 
 const router = createBrowserRouter([
   // TODO: replace with some actual home component
   {
     path: "/",
-    element: <h1>Hello!</h1>
+    element: <h1>Hello!</h1>,
   },
   {
     path: "/blob",
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "/raging-sea",
     element: <RagingSea />
+  },
+  {
+    path: "/toon",
+    element: <Toon />
   },
   {
     path: "*",

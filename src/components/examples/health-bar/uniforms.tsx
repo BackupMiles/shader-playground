@@ -2,17 +2,20 @@ import { Color, IUniform } from "three";
 import { DEFAULT_UNIFORMS, TUniforms } from "../../../constants/uniforms";
 
 export type THealthUniform = TUniforms & {
-  u_depth_color: IUniform<Color>;
-  u_surface_color: IUniform<Color>;
+  u_empty_color: IUniform<Color>;
+  u_health_color: IUniform<Color>;
+  u_percentage: IUniform<Number>;
 };
 
 type THealthBuilderOptions = {
-  depthColor: string;
-  surfaceColor: string;
+  emptyColor: string;
+  healthColor: string;
+  healthPercentage: number;
 }
 
-export const buildHealthUniforms = ({ depthColor, surfaceColor }: THealthBuilderOptions): THealthUniform => ({
+export const buildHealthUniforms = ({ emptyColor, healthColor, healthPercentage  }: THealthBuilderOptions): THealthUniform => ({
   ...DEFAULT_UNIFORMS,
-  u_depth_color: { value: new Color(depthColor) },
-  u_surface_color: { value: new Color(surfaceColor) }
+  u_empty_color: { value: new Color(emptyColor) },
+  u_health_color: { value: new Color(healthColor) },
+  u_percentage: { value: healthPercentage },
 });

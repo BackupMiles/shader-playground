@@ -1,5 +1,5 @@
 import { OrbitControls } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, GroupProps, useLoader } from "@react-three/fiber";
 import { GUI } from "lil-gui";
 import { useEffect } from "react";
 import fragmentShader from "../../../../src/assets/health-bar/fragment.glsl?raw";
@@ -7,6 +7,7 @@ import vertexShader from "../../../../src/assets/health-bar/vertex.glsl?raw";
 import RendererInfo from "../../renderer-info";
 import { buildHealthUniforms } from "./uniforms";
 import { initializeGUI } from "./utils";
+import { HealthBarModel } from "./health-bar-model";
 
 const HealthBar = () => {
   const uniforms = buildHealthUniforms({ 
@@ -14,6 +15,8 @@ const HealthBar = () => {
     healthColor: "#DDDDDD", 
     healthPercentage: 0.8
   });
+
+  const gltfPath = "../../../../src/assets/health-bar/health_box.glb";
 
   useEffect(() => {
     const gui = new GUI();
@@ -28,20 +31,15 @@ const HealthBar = () => {
     <Canvas
       className="w-full bg-black h-full"
       camera={{
-        position: [0, 0, 10],
+        position: [10, 2, 2],
         fov: 75,
       }}
     >
+      <ambientLight args={['#FFFFFF', 1.]} />
+      <pointLight position={[10, 10, 10]} />
       <RendererInfo uniforms={uniforms} />
       <OrbitControls />
-      <mesh>
-        <planeGeometry args={[12, 3, 10, 10]} />
-        <shaderMaterial
-          fragmentShader={fragmentShader}
-          vertexShader={vertexShader}
-          uniforms={uniforms}
-        />
-      </mesh>
+      <HealthBarModel fragmentShader={fragmentShader} vertexShader={vertexShader} gltfPath={gltfPath} uniforms={uniforms}  />
     </Canvas>
   );
 };

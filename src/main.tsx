@@ -6,7 +6,7 @@ import Globe from "./components/examples/globe";
 import Perlin from "./components/examples/perlin";
 import PlaneNoise from "./components/examples/plane-noise";
 import RagingSea from "./components/examples/raging-sea/raging-sea";
-import HealthBar from "./components/examples/toon/toon";
+import HealthBar from "./components/examples/health-bar/health-bar";
 import "./index.css";
 
 const router = createBrowserRouter([

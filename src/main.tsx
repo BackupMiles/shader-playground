@@ -2,11 +2,12 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import BobbyBlob from "./components/examples/bobby-blob";
+import Bup from "./components/examples/bup/bup";
 import Globe from "./components/examples/globe";
+import HealthBar from "./components/examples/health-bar/health-bar";
 import Perlin from "./components/examples/perlin";
 import PlaneNoise from "./components/examples/plane-noise";
 import RagingSea from "./components/examples/raging-sea/raging-sea";
-import HealthBar from "./components/examples/health-bar/health-bar";
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/blob",
     element: <BobbyBlob />
+  },
+  {
+    path: "/bup",
+    element: <Bup />
   },
   {
     path: "/globe",

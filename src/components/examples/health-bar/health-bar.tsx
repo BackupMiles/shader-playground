@@ -1,13 +1,13 @@
 import { OrbitControls } from "@react-three/drei";
-import { Canvas, GroupProps, useLoader } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import { GUI } from "lil-gui";
 import { useEffect } from "react";
 import fragmentShader from "../../../../src/assets/health-bar/fragment.glsl?raw";
 import vertexShader from "../../../../src/assets/health-bar/vertex.glsl?raw";
 import RendererInfo from "../../renderer-info";
+import { HealthBarModel } from "./health-bar-model";
 import { buildHealthUniforms } from "./uniforms";
 import { initializeGUI } from "./utils";
-import { HealthBarModel } from "./health-bar-model";
 
 const HealthBar = () => {
   const uniforms = buildHealthUniforms({ 

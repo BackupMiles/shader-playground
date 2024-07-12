@@ -17,31 +17,31 @@ const router = createBrowserRouter([
     element: <h1>Hello!</h1>,
   },
   {
-    path: "/blob",
+    path: "/shader-playground/blob",
     element: <BobbyBlob />
   },
   {
-    path: "/bup",
+    path: "/shader-playground/bup",
     element: <Bup />
   },
   {
-    path: "/globe",
+    path: "/shader-playground/globe",
     element: <Globe />
   },
   {
-    path: "/plane-noise",
+    path: "/shader-playground/plane-noise",
     element: <PlaneNoise />
   },
   {
-    path: "/perlin",
+    path: "/shader-playground/perlin",
     element: <Perlin />
   },
   {
-    path: "/raging-sea",
+    path: "/shader-playground/raging-sea",
     element: <RagingSea />
   },
   {
-    path: "/health-bar",
+    path: "/shader-playground/health-bar",
     element: <HealthBar />
   },
   {

@@ -1,4 +1,5 @@
 {
+  "homepage": "https://backupmiles.github.io/shader-playground/",
   "name": "shaders-playground",
   "private": true,
   "version": "0.0.0",
@@ -7,7 +8,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@react-three/drei": "^9.108.1",
@@ -29,6 +32,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
+    "gh-pages": "^6.1.1",
     "husky": "^9.0.11",
     "lil-gui": "^0.19.2",
     "lint-staged": "^15.2.7",

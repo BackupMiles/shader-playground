@@ -8,13 +8,14 @@ import HealthBar from "./components/examples/health-bar/health-bar";
 import Perlin from "./components/examples/perlin";
 import PlaneNoise from "./components/examples/plane-noise";
 import RagingSea from "./components/examples/raging-sea/raging-sea";
+import Home from "./components/home";
 import "./index.css";
 
 const router = createBrowserRouter([
   // TODO: replace with some actual home component
   {
-    path: "/",
-    element: <h1>Hello!</h1>,
+    path: "/shader-playground/",
+    element: <Home />,
   },
   {
     path: "/shader-playground/blob",

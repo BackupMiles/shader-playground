@@ -2,7 +2,7 @@ import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import GUI from "lil-gui";
 import { useEffect } from "react";
-import { Color, Vector3 } from "three";
+import { Vector3 } from "three";
 import RendererInfo from "../../renderer-info";
 import baseFragmentShader from './base/fragment.glsl?raw';
 import baseVertexShader from './base/vertex.glsl?raw';
@@ -12,7 +12,10 @@ import { buildGrassUniform } from "./uniforms";
 import { initializeGUI } from "./utils";
 
 const WindyGrass = () => {
-  const uniforms = buildGrassUniform(new Color(Color.NAMES.green), 3);
+  const uniforms = buildGrassUniform({
+    color: "#EEEEEE",
+    height: 3
+  });
 
   useEffect(() => {
     const gui = new GUI();
@@ -43,8 +46,8 @@ const WindyGrass = () => {
         />
       </mesh>
       <mesh position={new Vector3(0, 2.5, 0)}>
-        <planeGeometry args={[0.5, 2]} />
-        <shaderMaterial fragmentShader={grassFragmentShader} vertexShader={grassVertexShader} uniforms={uniforms} />
+        <planeGeometry args={[0.25, 2, 2, 2]} />
+        <shaderMaterial fragmentShader={grassFragmentShader} vertexShader={grassVertexShader} uniforms={uniforms} wireframe />
       </mesh>
     </Canvas>
   );

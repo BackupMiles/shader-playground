@@ -6,8 +6,8 @@ export type TGrassUniforms = TUniforms & {
   u_color: IUniform<Color>;
 };
 
-export const buildGrassUniform = (color: Color, height: number): TGrassUniforms => ({
+export const buildGrassUniform = ({color, height} : {color: string, height: number}): TGrassUniforms => ({
   ...DEFAULT_UNIFORMS,
-  u_color: { value: color },
+  u_color: { value: new Color(color) },
   u_height: { value: height }
 });

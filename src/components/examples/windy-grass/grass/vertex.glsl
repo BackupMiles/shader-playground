@@ -1,15 +1,16 @@
-uniform float u_time;
-
 varying vec2 vUv;
 
+uniform float u_bend_factor;
+uniform float u_height;
+uniform float u_time;
+
 void main() {
-  vec4 mv = modelViewMatrix * vec4(position, 1.);
-  vec4 p = projectionMatrix * mv;
+    // TODO: make these variables external
+    float bend = pow(u_bend_factor + (sin(u_time * 4.4) * 0.1) + 0.5, uv.y) - 1.;
 
-  if (uv.y > 0.5) {
-    p.x -= abs(sin(u_time));
-  }
+    vec3 newPosition = position;
+    newPosition.z += bend;
 
-  gl_Position = p;
-  vUv = uv;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
+    vUv = uv;
 }

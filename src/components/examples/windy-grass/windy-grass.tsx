@@ -2,7 +2,7 @@ import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import GUI from "lil-gui";
 import { useEffect } from "react";
-import { Vector3 } from "three";
+import { DoubleSide, Vector3 } from "three";
 import RendererInfo from "../../renderer-info";
 import baseFragmentShader from './base/fragment.glsl?raw';
 import baseVertexShader from './base/vertex.glsl?raw';
@@ -13,6 +13,7 @@ import { initializeGUI } from "./utils";
 
 const WindyGrass = () => {
   const uniforms = buildGrassUniform({
+    bend: 2,
     color: "#EEEEEE",
     height: 3
   });
@@ -30,24 +31,27 @@ const WindyGrass = () => {
     <Canvas
       className="w-full bg-black h-full"
       camera={{
-        position: [0, 8, 5],
+        position: [2, 7, 2],
         fov: 75,
       }}
     >
       <RendererInfo uniforms={uniforms} />
       <OrbitControls />
       <axesHelper />
-      <mesh>
+      {/* ground */}
+      <mesh position={new Vector3(0, -1, 0)}>
         <icosahedronGeometry args={[2, 100]} />
         <shaderMaterial
           fragmentShader={baseFragmentShader}
           vertexShader={baseVertexShader}
+          side={DoubleSide}
           uniforms={uniforms}
         />
       </mesh>
-      <mesh position={new Vector3(0, 2.5, 0)}>
-        <planeGeometry args={[0.25, 2, 2, 2]} />
-        <shaderMaterial fragmentShader={grassFragmentShader} vertexShader={grassVertexShader} uniforms={uniforms} wireframe />
+      {/* grass */}
+      <mesh position={new Vector3(0, 2, 0)}>
+        <planeGeometry args={[0.25, 2, 1, 10]} />
+        <shaderMaterial fragmentShader={grassFragmentShader} vertexShader={grassVertexShader} uniforms={uniforms} side={DoubleSide} />
       </mesh>
     </Canvas>
   );

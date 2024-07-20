@@ -8,6 +8,7 @@ import HealthBar from "./components/examples/health-bar/health-bar";
 import Perlin from "./components/examples/perlin";
 import PlaneNoise from "./components/examples/plane-noise";
 import RagingSea from "./components/examples/raging-sea/raging-sea";
+import RayMarching from "./components/examples/ray-marching/ray-marching";
 import WindyGrass from "./components/examples/windy-grass/windy-grass";
 import Home from "./components/home";
 import "./index.css";
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
   {
     path: "/shader-playground/windy-grass",
     element: <WindyGrass />
+  },
+  {
+    path: "/shader-playground/ray-marching",
+    element: <RayMarching />
   },
   {
     path: "*",

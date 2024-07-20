@@ -16,7 +16,7 @@ const HealthBar = () => {
     healthPercentage: 0.8
   });
 
-  const gltfPath = "../../../../src/assets/health-bar/health_box.glb";
+  const gltfPath = "health_box.glb";
 
   useEffect(() => {
     const gui = new GUI();

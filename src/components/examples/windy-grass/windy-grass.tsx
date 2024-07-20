@@ -6,15 +6,14 @@ import { DoubleSide, Vector3 } from "three";
 import RendererInfo from "../../renderer-info";
 import baseFragmentShader from './base/fragment.glsl?raw';
 import baseVertexShader from './base/vertex.glsl?raw';
-import grassFragmentShader from './grass/fragment.glsl?raw';
-import grassVertexShader from './grass/vertex.glsl?raw';
+import { GrassBlade } from "./grass-blade";
 import { buildGrassUniform } from "./uniforms";
 import { initializeGUI } from "./utils";
 
 const WindyGrass = () => {
   const uniforms = buildGrassUniform({
     bend: 2,
-    color: "#EEEEEE",
+    color: "#51694f",
     height: 3
   });
 
@@ -49,10 +48,7 @@ const WindyGrass = () => {
         />
       </mesh>
       {/* grass */}
-      <mesh position={new Vector3(0, 2, 0)}>
-        <planeGeometry args={[0.25, 2, 1, 10]} />
-        <shaderMaterial fragmentShader={grassFragmentShader} vertexShader={grassVertexShader} uniforms={uniforms} side={DoubleSide} />
-      </mesh>
+      <GrassBlade position={new Vector3(0, 0.85, 0)} uniforms={uniforms} />
     </Canvas>
   );
 };

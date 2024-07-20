@@ -9,7 +9,7 @@ void main() {
     float bend = pow(u_bend_factor + (sin(u_time * 4.4) * 0.1) + 0.5, uv.y) - 1.;
 
     vec3 newPosition = position;
-    newPosition.z += bend;
+    newPosition.x += bend;
 
     gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
     vUv = uv;

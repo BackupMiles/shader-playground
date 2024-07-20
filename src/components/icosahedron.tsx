@@ -11,7 +11,7 @@ const Icosahedron = ({ fragmentShader, uniforms, vertexShader, handleRefInit }: 
   return (
     <mesh ref={handleRefInit}>
       <icosahedronGeometry args={[4, 30]} />
-      <shaderMaterial vertexShader={vertexShader} fragmentShader={fragmentShader} uniforms={uniforms} wireframe={true} />
+      <shaderMaterial vertexShader={vertexShader} fragmentShader={fragmentShader} uniforms={uniforms} />
     </mesh>
   );
 };
